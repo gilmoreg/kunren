@@ -29,7 +29,11 @@ class Challenge extends React.Component<any, ChallengeState> {
 
     public alert(result: boolean) {
         alert(result)
-        this.setState({ currentQuestion: this.state.currentQuestion + 1 })
+        let currentQuestion = this.state.currentQuestion + 1;
+        if (currentQuestion >= this.state.questions.length) {
+            currentQuestion = 0;
+        }
+        this.setState({ currentQuestion });
     }
 
     public render() {
